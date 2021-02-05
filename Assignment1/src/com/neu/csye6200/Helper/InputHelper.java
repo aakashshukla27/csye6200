@@ -50,7 +50,7 @@ public class InputHelper {
                     System.out.println("Terminating current program");
                     System.exit(0);
                 default:
-                    System.out.println("Wrong input - Terminating current ");
+                    System.out.println("Wrong input - Terminating current program");
                     System.exit(0);
             }
         }
