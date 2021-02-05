@@ -47,9 +47,11 @@ public class InputHelper {
                     hsHelper.historyPrinter(passwordHistory);
                     break;
                 case 4:
+                    scan.close();
                     System.out.println("Terminating current program");
                     System.exit(0);
                 default:
+                    scan.close();
                     System.out.println("Wrong input - Terminating current program");
                     System.exit(0);
             }
