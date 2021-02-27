@@ -1,0 +1,8 @@
+Make:Volvo
+Model:Model1
+Year:2010
+Capacity:2
+Tank:100
+Mileage:2.0
+Range:200.0
+License:New_number12345

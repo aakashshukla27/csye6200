@@ -1,6 +1,8 @@
 package com.neu.csye6200.Helper;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HistorySumHelper {
     public static void historyPrinter(ArrayList<String> ipArray) {
@@ -15,6 +17,12 @@ public class HistorySumHelper {
                 ASCIISum asciisum = new ASCIISum();
                 asciisum.returnASCIISum(ipArray.get(i));
                 System.out.println("\n");
+                double num = 1323.526;
+
+                NumberFormat defaultFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+                String temp = defaultFormat.format(num);
+                System.out.println("US: " + defaultFormat.format(num));
+
             }
         }
 
