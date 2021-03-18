@@ -1,0 +1,8 @@
+Make:Ferrari
+Model:La Ferrari
+Year:2020
+Capacity:2
+Tank:30
+Mileage:4.0
+Range:120.0
+License:VBG 123

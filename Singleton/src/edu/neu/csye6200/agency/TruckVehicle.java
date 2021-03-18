@@ -1,12 +1,10 @@
-package edu.neu.csye6200;
+package edu.neu.csye6200.agency;
 
 import java.io.IOException;
 
 public class TruckVehicle extends Vehicle{
-
     int height, width, length;
     long cargoArea;
-
     /**
      * Vehicle Constructor
      *
@@ -34,24 +32,12 @@ public class TruckVehicle extends Vehicle{
         this.cargoArea = height * width * length;
     }
 
-    /***
-     * calculates cargo volume
-     */
-    public void calculateCargoArea(){
-        System.out.println("The cargo area is : " + this.cargoArea + " cubic units.");
-    }
-
-    /***
-     *
-     * @return vehicle details
-     */
     public String printDetails(){
-        String tempString = "Length: " + this.length +
-                "\nWidth: " + this.width+
-                "\nHeight: " + this.height+
-                "\nCargo Volume: " + this.cargoArea;
+        String tempString = "\tLength: " + this.length +
+                "\n\tWidth: " + this.width+
+                "\n\tHeight: " + this.height+
+                "\n\tCargo Volume: " + this.cargoArea;
 
-        return  tempString;
+        return this.toString() + tempString;
     }
-
 }

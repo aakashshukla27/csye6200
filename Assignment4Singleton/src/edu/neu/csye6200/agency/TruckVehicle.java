@@ -1,4 +1,4 @@
-package edu.neu.csye6200;
+package edu.neu.csye6200.agency;
 
 import java.io.IOException;
 
@@ -51,7 +51,7 @@ public class TruckVehicle extends Vehicle{
                 "\nHeight: " + this.height+
                 "\nCargo Volume: " + this.cargoArea;
 
-        return  tempString;
+        return this.toString() + tempString;
     }
 
 }

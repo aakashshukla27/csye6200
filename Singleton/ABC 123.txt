@@ -1,0 +1,8 @@
+Make:Suzuki
+Model:Swift
+Year:2019
+Capacity:5
+Tank:40
+Mileage:20.0
+Range:800.0
+License:ABC 123

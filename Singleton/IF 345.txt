@@ -1,0 +1,8 @@
+Make:Toyota
+Model:Land Cruiser
+Year:2015
+Capacity:7
+Tank:61
+Mileage:8.0
+Range:488.0
+License:IF 345
