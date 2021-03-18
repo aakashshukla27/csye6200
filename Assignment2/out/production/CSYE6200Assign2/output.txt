@@ -1,0 +1,16 @@
+Please select the category for available vehicles:
+
+1. Sports Car
+2. SUV
+3. Hatchback
+4. Exit
+2
+SUV: 
+Vehicle Make: Toyota
+Vehicle Model: Land Cruiser
+Tank Capacity: 61 litres
+Passenger Capacity: 7
+Mileage: 8.0 kilometers per litre
+Range: 488.0 kilometers
+
+Process finished with exit code 0
