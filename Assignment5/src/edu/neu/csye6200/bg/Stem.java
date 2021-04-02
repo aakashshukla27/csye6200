@@ -23,12 +23,12 @@ public class Stem {
         stemList.stemList.add(this);
     }
 
-    public Stem(int id, Enumeration.DirectionOfGrowth dg){
+    public Stem(Enumeration.DirectionOfGrowth dg){
         this.id = stemList.stemList.size();
         this.length = 1;
         this.direction = dg;
         this.age = 0;
-        this.angleOfGrowth = 90;
+        this.angleOfGrowth = 45;
         this.positionX = 0;
         this.positionY = -100;
         this.parent = id;

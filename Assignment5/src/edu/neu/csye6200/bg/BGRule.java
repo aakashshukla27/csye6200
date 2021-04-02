@@ -25,8 +25,8 @@ public class BGRule extends Stem{
                 Thread.sleep(1000);
                 for(Stem stem : stemList){
                     if(stem.length == 5){
-                        Stem newStem1 = new Stem(stem.id, Enumeration.DirectionOfGrowth.LEFT);
-                        Stem newStem2 = new Stem(stem.id, Enumeration.DirectionOfGrowth.RIGHT);
+                        Stem newStem1 = new Stem(Enumeration.DirectionOfGrowth.LEFT);
+                        Stem newStem2 = new Stem(Enumeration.DirectionOfGrowth.RIGHT);
                     }
                 }
             }

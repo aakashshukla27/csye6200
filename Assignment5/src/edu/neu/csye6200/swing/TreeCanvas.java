@@ -43,9 +43,8 @@ public class TreeCanvas extends JPanel {
 //            g2d.drawLine(startPositionX, startPositionY, endPositionX, endPositionY);
 //        }
 //        while(i<50);
-
-
     }
+
 
 
 
