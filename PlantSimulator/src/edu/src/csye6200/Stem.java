@@ -34,6 +34,20 @@ public class Stem implements GenerationValidator{
         if((this.currX == this.endX)&&(this.currY == this.endY)){
             return true;
         }
+        else if(this.length >= this.maxLength){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean quarterLengthReached(){
+        Stem stem = this;
+        bgRule.calculateLength(this);
+        if(this.length == this.maxLength/4){
+            return true;
+        }
         else{
             return false;
         }
