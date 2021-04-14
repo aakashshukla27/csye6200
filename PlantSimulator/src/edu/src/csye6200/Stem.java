@@ -9,7 +9,7 @@ public class Stem implements GenerationValidator{
     int age;
     int category;
     double maxLength;
-
+    //int parent;
     public Stem(int id, double startX, double startY, double currX, double currY,double endX, double endY, int age, int angle, int category){
         this.id = id;
         this.length = 0;
@@ -22,6 +22,7 @@ public class Stem implements GenerationValidator{
         this.category = category;
         this.endX = endX;
         this.endY = endY;
+        //this.parent = parent;
         calculateMaxLength();
     }
     public void calculateMaxLength(){

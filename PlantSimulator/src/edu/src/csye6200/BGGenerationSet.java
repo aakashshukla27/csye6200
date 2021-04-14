@@ -85,6 +85,17 @@ public class BGGenerationSet {
                     createTop(stemList.get(8).angle, 8);
                     createTop(stemList.get(2).angle, 2);
                     createTop(stemList.get(1).angle, 1);
+                }
+            }
+            if(stemList.get(stemList.size()-1).maxLengthAchieved()){
+                ArrayList<Stem> tempList = new ArrayList<Stem>();
+                for(int i=0; i<stemList.size(); i++){
+                    if(stemList.get(i).category == 3){
+                        tempList.add(stemList.get(i));
+                    }
+                }
+
+                for(Stem tempStem: tempList){
 
                 }
             }
@@ -270,6 +281,7 @@ public class BGGenerationSet {
                 }
                 try {
                     growTrunk();
+                    Simulator.displayList.add(stemList);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
