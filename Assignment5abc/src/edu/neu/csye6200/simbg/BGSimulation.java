@@ -37,9 +37,11 @@ public class BGSimulation extends Observable implements Runnable {
             case "Tree 1":
                 Rule1Thread.stemList.clear();
                 Rule1Thread.rotatedStems.clear();
+
                 rule1 =new Rule1Thread(MyAppUI.frameWidth/2 - 50, MyAppUI.frameHeight/2, MyAppUI.frameWidth/2 - 50,
                         MyAppUI.frameWidth/2 -450,1, 90, 0);
                 rule1.start();
+
                 break;
             case "Tree 2":
 
@@ -124,6 +126,9 @@ public class BGSimulation extends Observable implements Runnable {
 
     }
 
+    /**
+     * over ride for run method
+     */
     @Override
     public void run() {
         runSimLoop(); // Run the simulation

@@ -1,9 +1,6 @@
 package edu.neu.csye6200.ui;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
@@ -18,7 +15,7 @@ public abstract class BGApp implements ActionListener {
     protected MenuManager menuMgr;
 
     /**
-     * The BGApp constructor. This methis initializes the GUI by performing calls to the
+     * The BGApp constructor. This method initializes the GUI by performing calls to the
      * extending class.
      */
     public BGApp() {
@@ -88,7 +85,10 @@ public abstract class BGApp implements ActionListener {
      * Override/complete this method to show an About Dialog
      */
     public void showHelp() {
+        JOptionPane.showMessageDialog(null, "This project showcases growth of a stem into a plant.");
     }
+
+
 
 }
 

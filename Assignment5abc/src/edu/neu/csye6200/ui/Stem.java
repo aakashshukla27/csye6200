@@ -32,7 +32,10 @@ public class Stem extends Point implements BGRule {
         this.direction = direction;
     }
 
-
+    /**
+     * below methods are used for generating new branches - changing the values will render different types of trees
+     * @return
+     */
     public boolean mainStemPoint1Length(){
         if(this.currY == (this.startY - 150)){
             return true;
@@ -52,7 +55,10 @@ public class Stem extends Point implements BGRule {
         }
     }
 
-
+    /**
+     * check to see if stem has reached max length
+     * @return
+     */
     public boolean maxLengthAchieved() {
         if((this.endX == this.currX) && (this.endY == this.currY)){
             //this.stopGrowth = true;
@@ -216,6 +222,10 @@ public class Stem extends Point implements BGRule {
         return valueToReturn;
     }
 
+    /**
+     * methods specific to sim type 3
+     * @return
+     */
     public boolean mainStemPoint1LengthSim3(){
         if(this.currY == (this.startY - 200)){
             return true;

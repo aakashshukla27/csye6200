@@ -2,12 +2,17 @@ package edu.neu.csye6200.ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
-public class TreePanel extends JPanel {
+public class TreePanel extends JPanel implements ComponentListener {
     TreePanel(){
         this.setBackground(Color.black);
         this.setPreferredSize(new Dimension(1200,1200));
+
     }
+
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -48,6 +53,7 @@ public class TreePanel extends JPanel {
 
                     }
                 }
+
                 break;
             case "Tree 2":
                 if(Rule2Thread.rotatedStems.size() == 0){
@@ -147,5 +153,32 @@ public class TreePanel extends JPanel {
                 }
                 break;
         }
+    }
+
+    /**
+     * over ride to generate responsive design
+     * @param e
+     */
+    @Override
+    public void componentResized(ComponentEvent e) {
+        MyAppUI.canvas.removeAll();
+        MyAppUI.canvas.revalidate();
+        MyAppUI.canvas.repaint();
+        MyAppUI.canvas.updateUI();
+    }
+
+    @Override
+    public void componentMoved(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentShown(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentHidden(ComponentEvent e) {
+
     }
 }

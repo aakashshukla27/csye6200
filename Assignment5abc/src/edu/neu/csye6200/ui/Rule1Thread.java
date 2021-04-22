@@ -13,7 +13,7 @@ public class Rule1Thread implements Runnable{
     private static Thread worker; //main thread of the simulation
     private static final AtomicBoolean running = new AtomicBoolean(false); //current state of thread is stored here
     private static boolean stop = false; //used for stopping the simulation
-
+    GraphicThread graphicThread = new GraphicThread();
     /**
      * constructor for rule 1, creates a new stem and adds it to the stemList
      * @param startX
@@ -26,6 +26,7 @@ public class Rule1Thread implements Runnable{
      */
     public Rule1Thread(int startX, int startY,int endX,int endY,int category,int angle, int parent){
         growthEnd = false;
+        stop = false;
         MyAppUI.canvas.removeAll();
         MyAppUI.canvas.revalidate();
         MyAppUI.canvas.repaint();
@@ -38,6 +39,7 @@ public class Rule1Thread implements Runnable{
      */
     public void start() {
         worker = new Thread(this);
+        stop = false;
         running.set(true);
         worker.start();
     }
@@ -48,6 +50,7 @@ public class Rule1Thread implements Runnable{
     public void stop() {
         stop = true;
         running.set(false);
+        graphicThread.stop();
     }
 
     /**
@@ -70,10 +73,10 @@ public class Rule1Thread implements Runnable{
         while (running.get()){
             try {
                 worker.sleep(2000);
+                graphicThread.start();
             } catch (InterruptedException e){
                 Thread.currentThread().interrupt();
-                System.out.println(
-                        "Thread was interrupted, Failed to complete operation");
+                System.out.println("Thread was interrupted, Failed to complete operation");
             }
 
             try {
@@ -81,6 +84,11 @@ public class Rule1Thread implements Runnable{
                  * this function invokes growth in stems
                  */
                 growStem();
+                /**
+                 * stops the graphic thread
+                 */
+                graphicThread.stop();
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -135,15 +143,13 @@ public class Rule1Thread implements Runnable{
                         }
                         //start rotation about parent's parent branch
                         rotatedStems.get(i).rotateAboutSuperParent(5);
-                        MyAppUI.canvas.removeAll();
-                        MyAppUI.canvas.revalidate();
-                        MyAppUI.canvas.repaint();
-                        MyAppUI.canvas.updateUI();
+
                     }
                 }
 
             }
             running.set(false);
+            stop =true;
         }
 
     }
@@ -184,13 +190,10 @@ public class Rule1Thread implements Runnable{
                 }
             }
 
-            MyAppUI.canvas.removeAll();
-            MyAppUI.canvas.revalidate();
-            MyAppUI.canvas.repaint();
-            MyAppUI.canvas.updateUI();
+
             System.out.println(stem.category + " : " + stem.currX + "," + stem.currY);
         }
-//        }
+
 
     }
 
@@ -223,7 +226,7 @@ public class Rule1Thread implements Runnable{
      * @param angle
      * @param category
      * @param parent
-     * @return
+     * @return new stems
      */
     public static Stem[] createFlowers(int startX, int startY, int angle, int category, int parent){
         Stem[] returnStem = new Stem[3];
@@ -325,7 +328,7 @@ public class Rule1Thread implements Runnable{
      * @param startX
      * @param startY
      * @param angle
-     * @return
+     * @return new stems
      */
     public static Stem[] createBranches(int startX, int startY, int angle){
         Stem[] returnStem = new Stem[2];
@@ -434,7 +437,7 @@ public class Rule1Thread implements Runnable{
 
     /**
      * check if growth is completed
-     * @return
+     * @return true if all stems have achieved max growth
      */
     public static boolean checkGrowthEnd() {
         for(Stem stem: stemList){
@@ -477,7 +480,7 @@ public class Rule1Thread implements Runnable{
     /**
      * for category 6 branches find direction of rotation
      * @param angle
-     * @return
+     * @return direction of rotation 1->anticlockwise, 2-> clockwise
      */
     public static int getCat6Direction(int angle){
         return switch (angle) {

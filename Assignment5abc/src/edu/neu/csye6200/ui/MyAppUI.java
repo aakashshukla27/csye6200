@@ -46,7 +46,7 @@ public class MyAppUI extends BGApp {
      * Misc. UI adjustments are implemented here
      */
     private void customizeGUI() {
-        frame.setSize(1200, 1200); // Width, height
+        //frame.setSize(1200, 1200); // Width, height
         frame.setTitle("Biological Growth Simulator");
     }
 
@@ -91,6 +91,7 @@ public class MyAppUI extends BGApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    System.out.println("Pause pressed - Anonymous inner callback");
                     simulation.pauseSim(simulationType);
                 } catch (InterruptedException interruptedException) {
                     interruptedException.printStackTrace();
@@ -101,13 +102,11 @@ public class MyAppUI extends BGApp {
         stopBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("Stop pressed - Anonymous inner callback");
                 simulation.stopSim(simulationType);
             }
         });
 
-
-        //pauseBtn.addActionListener(this);
-        //stopBtn.addActionListener(this);
 
 
         // Add two buttons that 'flow'
@@ -139,6 +138,8 @@ public class MyAppUI extends BGApp {
         System.out.println("MyAppUI is exiting !!!!!!!!!");
     }
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 //        System.out.println("Action Event: " + e);
@@ -163,6 +164,7 @@ public class MyAppUI extends BGApp {
 //            System.out.println("Stop pressed");
 //            simulation.stopSim(simulationType); // Stop the Simulation
 //        }
+
 
     }
 

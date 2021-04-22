@@ -12,6 +12,7 @@ public class Rule3Thread implements Runnable {
     private static Thread worker; //main thread of the simulation
     private static final AtomicBoolean running = new AtomicBoolean(false); //current state of thread is stored here
     private static boolean stop = false; //used for stopping the simulation
+    GraphicThread graphicThread = new GraphicThread();
     /**
      * constructor for rule 3, creates a new stem and adds it to the stemList
      * @param startX
@@ -37,6 +38,7 @@ public class Rule3Thread implements Runnable {
     public void start() {
         worker = new Thread(this);
         running.set(true);
+        stop = false;
         worker.start();
     }
 
@@ -46,6 +48,7 @@ public class Rule3Thread implements Runnable {
     public void stop() {
         stop = true;
         running.set(false);
+        graphicThread.stop();
     }
 
     /**
@@ -68,6 +71,7 @@ public class Rule3Thread implements Runnable {
         while (running.get()) {
             try {
                 worker.sleep(2000);
+                graphicThread.start();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 System.out.println(
@@ -79,6 +83,7 @@ public class Rule3Thread implements Runnable {
                  * this function invokes growth in stems
                  */
                 growStem();
+                graphicThread.stop();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -114,7 +119,6 @@ public class Rule3Thread implements Runnable {
                 }
             }
             System.out.println("Simulation Stopped");
-            //running.set(false);
             sendForRotation();
             outerLoop:
             for (int j = 0; j < 15; j++) {
@@ -127,15 +131,13 @@ public class Rule3Thread implements Runnable {
                             break outerLoop;
                         }
                         rotatedStem.rotateAboutSuperParent(5);
-                        MyAppUI.canvas.removeAll();
-                        MyAppUI.canvas.revalidate();
-                        MyAppUI.canvas.repaint();
-                        MyAppUI.canvas.updateUI();
+
                     }
 
                 }
             }
             running.set(false);
+            stop = true;
         }
     }
 
@@ -455,10 +457,7 @@ public class Rule3Thread implements Runnable {
                 }
             }
 
-            MyAppUI.canvas.removeAll();
-            MyAppUI.canvas.revalidate();
-            MyAppUI.canvas.repaint();
-            MyAppUI.canvas.updateUI();
+
             System.out.println(stem.category + " : " + stem.currX + "," + stem.currY);
         }
     }

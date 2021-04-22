@@ -7,6 +7,14 @@ public abstract class Point {
     //Every stem will have a parent from which it is derived
     public int parent;
 
+    /**
+     * constructor for point class - every element in stem is basically a point on the canvas
+     * @param id
+     * @param startX
+     * @param startY
+     * @param endX
+     * @param endY
+     */
     public Point(int id, int startX, int startY, int endX, int endY){
         this.id = id;
         this.startX = startX;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.neu.csye6200.ui</OriginalElement>
+  <nodes>
+    <node x="60.0" y="80.0">edu.neu.csye6200.ui.Stem</node>
+    <node x="108.0" y="0.0">edu.neu.csye6200.ui.BGRule</node>
+    <node x="257.0" y="0.0">edu.neu.csye6200.ui.BGApp</node>
+    <node x="0.0" y="155.0">edu.neu.csye6200.ui.GraphicThread</node>
+    <node x="249.0" y="80.0">edu.neu.csye6200.ui.MyAppUI</node>
+    <node x="197.0" y="155.0">edu.neu.csye6200.ui.Rule3Thread</node>
+    <node x="0.0" y="0.0">edu.neu.csye6200.ui.Point</node>
+    <node x="0.0" y="230.0">edu.neu.csye6200.ui.RotatedStem</node>
+    <node x="165.0" y="380.0">edu.neu.csye6200.ui.MyCanvas</node>
+    <node x="0.0" y="380.0">edu.neu.csye6200.ui.TreePanel</node>
+    <node x="181.0" y="230.0">edu.neu.csye6200.ui.Rule1Thread</node>
+    <node x="0.0" y="305.0">edu.neu.csye6200.ui.Rule2Thread</node>
+    <node x="181.0" y="305.0">edu.neu.csye6200.ui.MenuManager</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.neu.csye6200.ui.MyAppUI" target="edu.neu.csye6200.ui.BGApp">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="edu.neu.csye6200.ui.Stem" target="edu.neu.csye6200.ui.Point">
+      <point x="-20.0" y="-15.0" />
+      <point x="80.0" y="55.0" />
+      <point x="44.0" y="55.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="edu.neu.csye6200.ui.Stem" target="edu.neu.csye6200.ui.BGRule">
+      <point x="20.0" y="-15.0" />
+      <point x="120.0" y="55.0" />
+      <point x="156.0" y="55.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="176.5" y="205.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
