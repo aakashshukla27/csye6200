@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignment5abc:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignment5abc_jar</output-path>
+    <root id="archive" name="Assignment5abc.jar">
+      <element id="module-output" name="Assignment5abc" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
